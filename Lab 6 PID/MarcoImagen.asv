@@ -1,0 +1,18 @@
+function [imagen,Tamborde] = MargenImagen(imagen,ventana)
+    % Se replican el los bordes horizotales
+    ancho = size(imagen,1);    
+    imagen = cat(1, imagen(1, :), imagen, imagen(ancho,:));
+    % Se replican el los bordes vertical
+    alto = size(img,2);
+    imagen = cat(2, imagen(:, 1), imagen, imagen(:,alto));
+    % tamaño del margen
+    Tamborde = (ventana-1)/2;
+    
+    alto = size(imagen,2);    
+    bordeHorizontal = zeros(Tamborde-1, alto);    
+    imgOriginal = cat(1, bordeHorizontal, imgOriginal, bordeHorizontal);
+    [x1, y1] = size(imgOriginal);
+    bordeVertical = zeros(ancho, Tamborde-1);
+    imgOriginal = cat(2, bordeVertical, imgOriginal, bordeVertical);
+    imshow(imgOriginal)
+end
